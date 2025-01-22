@@ -16,7 +16,7 @@ class PromptAdapter:
         Args:
             file_path (str): Имя файла с промптами, который находится в папке 'prompts'.
         """
-        self._prompts = {}
+        # self._prompts = {}
         self.file_path = os.path.join('prompts', file_path)
         self.__read_data()
 
@@ -35,10 +35,10 @@ class PromptAdapter:
         except Exception as e:
             print(e)
 
-        if isinstance(self.file_path, pd.DataFrame):
-            self._prompts = self.file_path.to_dict(orient='list')
-        else:
-            print("Error: self.file_path is not a DataFrame after reading.")
+        # if isinstance(self.file_path, pd.DataFrame):
+        #     self._prompts = self.file_path.to_dict(orient='list')
+        # else:
+        #     print("Error: self.file_path is not a DataFrame after reading.")
 
     def get_prompt(self, doc_class: str, question_type: str) -> str:
         """Возвращает промпт для заданного класса документа и типа вопроса.
